@@ -13,10 +13,24 @@ public class GUITemplate extends JPanel {
 	
 	public void paintComponent(Graphics pen) {
 		super.paintComponent(pen);
+        
+        int height =50, width = 50, x = 50, y = 50;
 		
 		// YOUR CODE HERE!
-		pen.fillRect(50,50,50,50);
+        rectangle(height, width, x, y, pen);
+		pen.fillRect(height,width,x,y);
 	}
+    
+    private void rectangle(int x, int y, int width, int height, Graphics pen){
+        if(x < 500 && y < 500){
+            pen.fillRect(x, y, width, height);
+            rectangle(x+50, y+50, width, height, pen);
+            if(x%2== 0){
+                rectangle(x+50, y, width, height, pen);
+            }
+        }
+        
+    }
 	
 	// DO YOU NEED A HELPER METHOD?
 	
