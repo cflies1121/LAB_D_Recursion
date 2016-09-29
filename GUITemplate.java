@@ -17,18 +17,22 @@ public class GUITemplate extends JPanel {
         int height =50, width = 50, x = 50, y = 50;
 		
 		// YOUR CODE HERE!
-        rectangle(height, width, x, y, pen);
-		pen.fillRect(height,width,x,y);
+        rectangle(x, y, width, height, pen);
+		//pen.fillRect(x  , y , width, height);
 	}
     
     private void rectangle(int x, int y, int width, int height, Graphics pen){
-        if(x < 500 && y < 500){
-            pen.fillRect(x, y, width, height);
-            rectangle(x+50, y+50, width, height, pen);
-            if(x%2== 0){
-                rectangle(x+50, y, width, height, pen);
+        if(width > 0 && height > 0){
+            if(x < 500 && y < 500){
+                pen.fillRect(x, y, width, height);
+                rectangle(x + 50, y + 50, width/2, height/2, pen);
+                
             }
         }
+        
+    }
+    
+    private void rectangleCorner(int x, int y, int width, int height, Graphics pen){
         
     }
 	
