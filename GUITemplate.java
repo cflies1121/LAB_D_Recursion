@@ -23,16 +23,37 @@ public class GUITemplate extends JPanel {
     
     private void rectangle(int x, int y, int width, int height, Graphics pen){
         if(width > 0 && height > 0){
-            if(x < 500 && y < 500){
-                pen.fillRect(x, y, width, height);
-                rectangle(x + 50, y + 50, width/2, height/2, pen);
+            if(y < 500){
+                pen.fillRect(x, y, width, height);// creates the basic square
+                rectangleCorner(x, y, width, height, pen);// puts rectangles around the square/// not putting them around every square for somereason though
+                if(x < 450){
+                    
+                    rectangle(x + width + width, y, width, height, pen);// recursion
+                }
+                else if (x >= 450){/// if x == 450 or more then a new line is created
+                    x = width;
+                    y = y + height + height;/// moves y down 2 lines
+                    rectangle(x, y, width, height, pen);// recursion
+                }
                 
             }
         }
         
     }
-    
+    /**
+    /puts rectangles of half the size around the original square
+    /
+    **/
     private void rectangleCorner(int x, int y, int width, int height, Graphics pen){
+        if(x == width && y == width){
+            pen.fillRect(x-(width/2), y-(height/2), width/2, height/2);//top left
+            pen.fillRect(x+x, y+y, width/2, height/2);// bottom right
+            pen.fillRect(x+x, y-(height/2), width/2, height/2);//top right
+            pen.fillRect(x-(height/2), y+y, width/2, height/2);//bottom left
+            
+        }
+    
+        
         
     }
 	
