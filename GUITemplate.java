@@ -15,8 +15,6 @@ public class GUITemplate extends JPanel {
 		super.paintComponent(pen);
         
         int height =50, width = 50, x = 50, y = 50;
-		
-		// YOUR CODE HERE!
         rectangle(x, y, width, height, pen);
 		//pen.fillRect(x  , y , width, height);
 	}
@@ -24,6 +22,7 @@ public class GUITemplate extends JPanel {
     private void rectangle(int x, int y, int width, int height, Graphics pen){
         if(width > 0 && height > 0){
             if(y < 500){
+                //pen.setBackground(Color.white);
                 //pen.fillRect(x, y, width, height);// creates the basic square
                 rectangleCorner(x, y, width, height, pen);// puts rectangles around the square/// not putting them around every square for somereason though
                 pen.fillRect(x, y, width, height);
@@ -67,6 +66,7 @@ public class GUITemplate extends JPanel {
 		frame.setSize(500,500);
 		frame.setVisible(true);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
 	}
 	
 }
