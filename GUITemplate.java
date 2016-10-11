@@ -60,8 +60,6 @@ public class GUITemplate extends JPanel {
 		pen.setColor(Color.BLACK);
 		pen.drawRect(x, y, width, height);
     }
-        
-    }
     /**
     /puts rectangles of half the size around the original square
     /
