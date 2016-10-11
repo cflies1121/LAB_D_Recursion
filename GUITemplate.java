@@ -4,24 +4,48 @@ import javax.swing.*;
 import java.awt.event.*;
 
 public class GUITemplate extends JPanel {
+	public final int DIMENSION = 400;
+	public final int INITIAL_LENGTH = 200;
 
 	public GUITemplate() {
 		super();
 		setBackground(Color.white);
-		setPreferredSize(new Dimension(500,500));
+		setPreferredSize(new Dimension(DIMENSION, DIMENSION));
 	}
 	
 	public void paintComponent(Graphics pen) {
 		super.paintComponent(pen);
         
-        int height =50, width = 50, x = 50, y = 50;
-        rectangle(x, y, width, height, pen);
+		int startPoints = DIMENSION/4;
+        rectangle(startPoints, startPoints, INITIAL_LENGTH, INITIAL_LENGTH, pen);
 		//pen.fillRect(x  , y , width, height);
 	}
-    /*
+    
     private void rectangle(int x, int y, int width, int height, Graphics pen){
-        if(width > 0 && height > 0){
-            if(y < 500){
+        /*if(width > 0 && height > 0){
+        	if(y < 500){
+                //pen.setBackground(Color.white);
+                //pen.fillRect(x, y, width, height);// creates the basic square
+                rectangleCorner(x, y, width, height, pen);// puts rectangles around the square/// not putting them around every square for somereason though
+        		pen.setColor(Color.DARK_GRAY);
+	    		pen.fillRect(x, y, width, height);
+	    		pen.setColor(Color.BLACK);
+	    		pen.drawRect(x, y, width, height);
+                if(x < 450){
+                    
+                    rectangle(x + width + width, y, width, height, pen);// recursion
+                    
+                }
+                else if (x >= 450){/// if x == 450 or more then a new line is created
+                    x = width;
+                    y = y + height + height;/// moves y down 2 lines
+                    rectangle(x, y, width, height, pen);// recursion
+                }
+                rectangle(x/4, y/4, width/2, height/2,  pen);
+                
+            }*/
+            /*
+        	if(y < 500){
                 //pen.setBackground(Color.white);
                 //pen.fillRect(x, y, width, height);// creates the basic square
                 rectangleCorner(x, y, width, height, pen);// puts rectangles around the square/// not putting them around every square for somereason though
@@ -39,8 +63,6 @@ public class GUITemplate extends JPanel {
                 
             }
         }*/
-	    private void rectangle(int x, int y, int width, int height, Graphics pen){
-
     	if(width >= 25){
     		if(x < DIMENSION && x <= 350){
     			drawRectangle(x, y, width, height, pen);
