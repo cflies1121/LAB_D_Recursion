@@ -18,7 +18,7 @@ public class GUITemplate extends JPanel {
         rectangle(x, y, width, height, pen);
 		//pen.fillRect(x  , y , width, height);
 	}
-    
+    /*
     private void rectangle(int x, int y, int width, int height, Graphics pen){
         if(width > 0 && height > 0){
             if(y < 500){
@@ -38,7 +38,28 @@ public class GUITemplate extends JPanel {
                 }
                 
             }
-        }
+        }*/
+	    private void rectangle(int x, int y, int width, int height, Graphics pen){
+
+    	if(width >= 25){
+    		if(x < DIMENSION && x <= 350){
+    			drawRectangle(x, y, width, height, pen);
+    			rectangle(x+width+width, y, width, height, pen);
+    		} else if (x > DIMENSION && y <= 350){
+    			x = y;
+    			rectangle(x, y+height+height, width, height, pen);
+    		}
+    		drawRectangle(x, y, width, height, pen);
+    		rectangle(x/2, y/2, width/2, height/2, pen);
+    	}
+    }
+    
+    private void drawRectangle(int x, int y, int width, int height, Graphics pen){
+		pen.setColor(Color.DARK_GRAY);
+		pen.fillRect(x, y, width, height);
+		pen.setColor(Color.BLACK);
+		pen.drawRect(x, y, width, height);
+    }
         
     }
     /**
